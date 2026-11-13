@@ -1,0 +1,39 @@
+name: 'Drift Check by testedmcp'
+description: 'Compare an MCP server tools/list result to the last tested baseline on testedmcp.com'
+author: 'the testedmcp team'
+branding:
+  icon: 'activity'
+  color: 'blue'
+inputs:
+  slug:
+    description: 'The testedmcp listing slug (used to fetch the baseline).'
+    required: true
+  command:
+    description: 'Stdio start command, or a URL for a remote MCP server.'
+    required: true
+  fail-on:
+    description: 'When to fail the job: breaking, any, or none. Default is breaking.'
+    required: false
+    default: 'breaking'
+  comment:
+    description: 'If true, post or update one pull request comment. Default is false.'
+    required: false
+    default: 'false'
+  baseline-url:
+    description: 'Baseline JSON URL or local path. Default is the testedmcp baseline for the slug.'
+    required: false
+    default: ''
+  timeout:
+    description: 'Milliseconds to wait for initialize and tools/list. Default is 45000.'
+    required: false
+    default: '45000'
+outputs:
+  started:
+    description: 'Whether the server completed initialize and tools/list.'
+  breaking:
+    description: 'Number of breaking differences, including a startup failure.'
+  non-breaking:
+    description: 'Number of non-breaking differences.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

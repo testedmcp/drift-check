@@ -1,0 +1,23 @@
+{
+  "name": "drift-check",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Drift Check by testedmcp: compare an MCP server tools/list result to the last tested baseline",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "ncc build src/index.js -o dist -m --license licenses.txt",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
+    "js-tiktoken": "^1.0.21"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3"
+  }
+}
