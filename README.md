@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: testedmcp/drift-check@main
+      - uses: testedmcp/drift-check@v1
         with:
           slug: your-listing-slug
           command: npx -y your-package
@@ -89,7 +89,7 @@ For a remote server, set `command` to the endpoint URL (for example `https://exa
 
 ## Versioning
 
-No release tag has been published yet, so use `testedmcp/drift-check@main`, or pin a full commit SHA from this repository for a fixed version. The bundled `dist/index.js` on `main` is built from `src/` and runs on the `node20` Actions runtime.
+Use `testedmcp/drift-check@v1` for the current v1 release, or pin a full commit SHA from this repository for a fixed version. The bundled `dist/index.js` on `main` is built from `src/` and runs on the `node20` Actions runtime.
 
 ## Inputs
 
